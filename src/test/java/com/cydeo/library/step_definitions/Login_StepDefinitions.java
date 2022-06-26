@@ -44,4 +44,24 @@ public class Login_StepDefinitions {
         libraryLoginPage.passwordInputBox.sendKeys("6xhH92SU");
         libraryLoginPage.signInButton.click();
     }
+
+    @When("user enters librarian username {string}")
+    public void user_enters_librarian_username(String librarianUsername) {
+        libraryLoginPage.emailInputBox.sendKeys(librarianUsername);
+    }
+    @When("user enters librarian password {string}")
+    public void user_enters_librarian_password(String librarianPassword) {
+        libraryLoginPage.passwordInputBox.sendKeys(librarianPassword);
+        libraryLoginPage.signInButton.click();
+    }
+
+    @When("user enters student username {string}")
+    public void user_enters_student_username(String studentUsername) {
+        libraryLoginPage.emailInputBox.sendKeys(studentUsername);
+    }
+    @When("user enters student password {string}")
+    public void user_enters_student_password(String studentPassword) {
+        libraryLoginPage.passwordInputBox.sendKeys(studentPassword);
+        libraryLoginPage.signInButton.click();
+    }
 }
