@@ -17,7 +17,6 @@ Feature: Library app login feature
     And user enters student password "3s3wvmPq"
     Then user should see the dashboard
 
-  @wip
   Scenario: Login as librarian same line
     Given user is on the login page
     When user logs in using "librarian1@library" and "tE1jRRsv"
