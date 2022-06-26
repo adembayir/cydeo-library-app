@@ -8,7 +8,6 @@ import com.cydeo.library.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.bouncycastle.jcajce.provider.drbg.DRBG;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -34,8 +33,8 @@ public class Login_StepDefinitions {
     }
     @Then("user should see the dashboard")
     public void user_should_see_the_dashboard() {
-        wait.until(ExpectedConditions.visibilityOf(basePage.userInfo));
-        Assert.assertTrue(basePage.userInfo.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(basePage.accountHolder));
+        Assert.assertTrue(basePage.accountHolder.isDisplayed());
     }
     @When("user enters student username")
     public void user_enters_student_username() {
@@ -76,5 +75,11 @@ public class Login_StepDefinitions {
     @Then("there should be {string} users")
     public void there_should_be_users(String userCount) {
         Assert.assertEquals(userCount, librarianDashboardPage.userCount.getText());
+    }
+
+    @Then("account holder name should be {string}")
+    public void account_holder_name_should_be(String accountHolderName) {
+        wait.until(ExpectedConditions.visibilityOf(basePage.accountHolder));
+        Assert.assertEquals(accountHolderName, basePage.accountHolder.getText());
     }
 }

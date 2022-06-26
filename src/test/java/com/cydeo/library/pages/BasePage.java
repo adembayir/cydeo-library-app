@@ -10,9 +10,9 @@ public class BasePage {
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
-
+//"//a[@id='navbarDropdown']/span"
     @FindBy(xpath = "//a[@id='navbarDropdown']/span")
-    public WebElement userInfo;
+    public WebElement accountHolder;
 
     public void clickLink(String link) {
         Driver.getDriver().findElement(By.partialLinkText(link)).click();
