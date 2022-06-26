@@ -1,6 +1,7 @@
 package com.cydeo.library.step_definitions;
 
 import com.cydeo.library.pages.BasePage;
+import com.cydeo.library.pages.LibrarianDashboardPage;
 import com.cydeo.library.pages.LibraryLoginPage;
 import com.cydeo.library.utilities.ConfigurationReader;
 import com.cydeo.library.utilities.Driver;
@@ -15,6 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Login_StepDefinitions {
     LibraryLoginPage libraryLoginPage = new LibraryLoginPage();
     BasePage basePage = new BasePage();
+    LibrarianDashboardPage librarianDashboardPage = new LibrarianDashboardPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     @Given("user is on the login page")
@@ -63,5 +65,16 @@ public class Login_StepDefinitions {
     public void user_enters_student_password(String studentPassword) {
         libraryLoginPage.passwordInputBox.sendKeys(studentPassword);
         libraryLoginPage.signInButton.click();
+    }
+
+    @When("user logs in using {string} and {string}")
+    public void user_logs_in_using_and(String username, String password) {
+        libraryLoginPage.emailInputBox.sendKeys(username);
+        libraryLoginPage.passwordInputBox.sendKeys(password);
+        libraryLoginPage.signInButton.click();
+    }
+    @Then("there should be {string} users")
+    public void there_should_be_users(String userCount) {
+        Assert.assertEquals(userCount, librarianDashboardPage.userCount.getText());
     }
 }
