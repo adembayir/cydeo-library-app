@@ -12,4 +12,7 @@ public class BasePage {
 
     @FindBy(xpath = "//a[@class='navbar-brand']")
     public WebElement libraryLink;
+
+    @FindBy(xpath = "//a[@id='navbarDropdown']/span")
+    public WebElement userInfo;
 }
